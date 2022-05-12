@@ -27,7 +27,7 @@ class Ui_MainWindow(object):
         self.youtube_icon.setGeometry(QtCore.QRect(340, 30, 141, 101))
         self.youtube_icon.setMaximumSize(QtCore.QSize(171, 16777215))
         self.youtube_icon.setText("")
-        self.youtube_icon.setPixmap(QtGui.QPixmap("design\\../pics/youtube.png"))
+        self.youtube_icon.setPixmap(QtGui.QPixmap("pics/youtube.png"))
         self.youtube_icon.setAlignment(QtCore.Qt.AlignCenter)
         self.youtube_icon.setObjectName("youtube_icon")
         
@@ -153,15 +153,14 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         """Set the corresponding text to each PyQt5 GUI Widget."""
         
-        _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.app_title.setText(_translate("MainWindow", "Youtube Video Downloader"))
-        self.url_label.setText(_translate("MainWindow", "Video URL"))
-        self.location_label.setText(_translate("MainWindow", "Location"))
-        self.browse_button.setText(_translate("MainWindow", "Browse"))
-        self.download_button.setText(_translate("MainWindow", "Download"))
-        self.cancel_button.setText(_translate("MainWindow", "Cancel"))
-        self.pause_resume_button.setText(_translate("MainWindow", "Pause"))
+        MainWindow.setWindowTitle("Youtube Video Downloader")
+        self.app_title.setText("Youtube Video Downloader")
+        self.url_label.setText("Video URL")
+        self.location_label.setText("Location")
+        self.browse_button.setText("Browse")
+        self.download_button.setText("Download")
+        self.cancel_button.setText("Cancel")
+        self.pause_resume_button.setText("Pause")
 
     def browseButton_EventHandler(self, MainWindow):
         """Execute action when the browse button is clicked."""
