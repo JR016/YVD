@@ -106,6 +106,9 @@ class Ui_MainWindow(object):
         
         self.download_button = QtWidgets.QPushButton(self.centralwidget)
         self.download_button.setGeometry(QtCore.QRect(340, 400, 151, 51))
+
+        # Bind the download button to a checker and subsequently downloading video
+        self.download_button.clicked.connect(lambda : self.downloadButton_EventHandler(MainWindow))
         
         font = QtGui.QFont()
         font.setFamily("Segoe Print")
@@ -161,6 +164,12 @@ class Ui_MainWindow(object):
         self.pause_resume_button.setText(_translate("MainWindow", "Pause"))
 
     def browseButton_EventHandler(self, MainWindow):
-        """Execute action to operate when the browse button is clicked."""
+        """Execute action when the browse button is clicked."""
 
         MainWindow.browse_system(self.location_textEdit)
+
+    def downloadButton_EventHandler(self, MainWindow):
+        """Execute action when the download button is clicked."""
+
+        MainWindow.download_operations({"URL" : self.url_textEdit,
+                                        "Location" : self.location_textEdit})
