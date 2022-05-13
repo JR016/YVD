@@ -119,7 +119,12 @@ class Ui_MainWindow(object):
         
         self.cancel_button = QtWidgets.QPushButton(self.centralwidget)
         self.cancel_button.setGeometry(QtCore.QRect(180, 490, 121, 51))
-        self.cancel_button.setHidden(True)
+
+        # Bind the cancel button to its determined functionality
+        self.cancel_button.clicked.connect(lambda : self.cancelButton_EventHandler(MainWindow))
+
+        # Hide Cancel Button Inittialy
+        self.cancel_button.hide()
         
         font = QtGui.QFont()
         font.setFamily("Segoe Print")
@@ -130,7 +135,12 @@ class Ui_MainWindow(object):
         
         self.pause_resume_button = QtWidgets.QPushButton(self.centralwidget)
         self.pause_resume_button.setGeometry(QtCore.QRect(520, 490, 121, 51))
-        self.pause_resume_button.setHidden(True)
+
+        # Bind the pause/resume button to its respective functionality
+        self.pause_resume_button.clicked.connect(lambda : self.pauseButton_EventHanlder(MainWindow))
+
+        # Hide Resume Pause Button Initially
+        self.pause_resume_button.hide()
         
         font = QtGui.QFont()
         font.setFamily("Segoe Print")
@@ -170,5 +180,23 @@ class Ui_MainWindow(object):
     def downloadButton_EventHandler(self, MainWindow):
         """Execute action when the download button is clicked."""
 
-        MainWindow.download_operations({"URL" : self.url_textEdit,
-                                        "Location" : self.location_textEdit})
+        MainWindow.download_operations({"URL"      : self.url_textEdit,
+                                        "Location" : self.location_textEdit,
+                                        "Cancel"   : self.cancel_button,
+                                        "Pause"    : self.pause_resume_button})
+        
+    def cancelButton_EventHandler(self, MainWindow):
+        """Execute action when the cancel button is clicked."""
+
+        MainWindow.cancel_operations({"Download" : self.download_button,
+                                      "Cancel"   : self.cancel_button,
+                                      "Pause"    : self.pause_resume_button})
+
+        
+
+
+    def pauseButton_EventHanlder(self, MainWindow):
+        """Execute action when the pause/resume button is clicked."""
+
+        MainWindow.pause_or_resume({"Pause" : self.pause_resume_button})
+        

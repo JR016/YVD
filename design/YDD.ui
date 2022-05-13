@@ -23,7 +23,11 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Youtube Video Downloader</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../pics/youtube.png</normaloff>../pics/youtube.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="youtube_icon">
