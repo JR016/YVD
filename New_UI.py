@@ -101,10 +101,13 @@ class Ui_MainWindow(object):
         font.setPointSize(11)
         font.setBold(False)
         font.setWeight(50)
+        
         self.browse_button.setFont(font)
         self.browse_button.setObjectName("browse_button")
+        
         self.download_button = QtWidgets.QPushButton(self.centralwidget)
         self.download_button.setGeometry(QtCore.QRect(340, 460, 151, 51))
+        
         font = QtGui.QFont()
         font.setFamily("Segoe Print")
         font.setPointSize(12)
