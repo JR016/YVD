@@ -7,19 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>600</height>
+    <height>650</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>800</width>
-    <height>600</height>
+    <height>650</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>800</width>
-    <height>600</height>
+    <height>650</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -33,7 +33,7 @@
    <widget class="QLabel" name="youtube_icon">
     <property name="geometry">
      <rect>
-      <x>340</x>
+      <x>350</x>
       <y>30</y>
       <width>141</width>
       <height>101</height>
@@ -58,7 +58,7 @@
    <widget class="QLabel" name="app_title">
     <property name="geometry">
      <rect>
-      <x>190</x>
+      <x>200</x>
       <y>140</y>
       <width>471</width>
       <height>61</height>
@@ -103,7 +103,7 @@
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>300</y>
+      <y>360</y>
       <width>121</width>
       <height>61</height>
      </rect>
@@ -150,7 +150,7 @@
     <property name="geometry">
      <rect>
       <x>260</x>
-      <y>310</y>
+      <y>370</y>
       <width>381</width>
       <height>41</height>
      </rect>
@@ -175,7 +175,7 @@
     <property name="geometry">
      <rect>
       <x>670</x>
-      <y>315</y>
+      <y>375</y>
       <width>111</width>
       <height>31</height>
      </rect>
@@ -196,7 +196,7 @@
     <property name="geometry">
      <rect>
       <x>340</x>
-      <y>400</y>
+      <y>460</y>
       <width>151</width>
       <height>51</height>
      </rect>
@@ -214,8 +214,8 @@
    <widget class="QPushButton" name="cancel_button">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>490</y>
+      <x>140</x>
+      <y>560</y>
       <width>121</width>
       <height>51</height>
      </rect>
@@ -233,8 +233,8 @@
    <widget class="QPushButton" name="pause_resume_button">
     <property name="geometry">
      <rect>
-      <x>520</x>
-      <y>490</y>
+      <x>580</x>
+      <y>560</y>
       <width>121</width>
       <height>51</height>
      </rect>
@@ -247,6 +247,66 @@
     </property>
     <property name="text">
      <string>Pause</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="vid_name_label">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>300</y>
+      <width>121</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI Symbol</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Video Name</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="vid_name_textEdit">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>310</y>
+      <width>381</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI Light</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="lineWrapMode">
+     <enum>QTextEdit::NoWrap</enum>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="yt_progressBar">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>570</y>
+      <width>211</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="value">
+     <number>24</number>
     </property>
    </widget>
   </widget>

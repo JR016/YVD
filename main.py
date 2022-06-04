@@ -4,6 +4,7 @@
 
 import YD_Logic, YD_UI, platform, helper_funcs, os
 from PyQt5 import QtCore, QtGui, QtWidgets
+from YT_Downloader import YT_Downloader
 
 if __name__ == "__main__":
     import sys
@@ -15,7 +16,10 @@ if __name__ == "__main__":
         
         # Execute program only if OS is Windows
         app = QtWidgets.QApplication(sys.argv)
-        MainWindow = YD_Logic.YDMainWindow()
+
+        # Give the YT Downloader to the main window
+        yt_downloader = YT_Downloader()
+        MainWindow = YD_Logic.YDMainWindow(yt_downloader)
 
         # Set the window icon
         MainWindow.setWindowIcon(QtGui.QIcon(YT_ICON))

@@ -17,14 +17,14 @@ class Ui_MainWindow(object):
         
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
-        MainWindow.setMinimumSize(QtCore.QSize(800, 600))
-        MainWindow.setMaximumSize(QtCore.QSize(800, 600))
+        MainWindow.setMinimumSize(QtCore.QSize(800, 650))
+        MainWindow.setMaximumSize(QtCore.QSize(800, 650))
         
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         
         self.youtube_icon = QtWidgets.QLabel(self.centralwidget)
-        self.youtube_icon.setGeometry(QtCore.QRect(340, 30, 141, 101))
+        self.youtube_icon.setGeometry(QtCore.QRect(350, 30, 141, 101))
         self.youtube_icon.setMaximumSize(QtCore.QSize(171, 16777215))
         self.youtube_icon.setText("")
         self.youtube_icon.setPixmap(QtGui.QPixmap("pics/youtube.png"))
@@ -32,7 +32,7 @@ class Ui_MainWindow(object):
         self.youtube_icon.setObjectName("youtube_icon")
         
         self.app_title = QtWidgets.QLabel(self.centralwidget)
-        self.app_title.setGeometry(QtCore.QRect(190, 140, 471, 61))
+        self.app_title.setGeometry(QtCore.QRect(200, 140, 471, 61))
         
         font = QtGui.QFont()
         font.setFamily("Segoe UI Symbol")
@@ -52,8 +52,9 @@ class Ui_MainWindow(object):
         self.url_label.setFont(font)
         self.url_label.setAlignment(QtCore.Qt.AlignCenter)
         self.url_label.setObjectName("url_label")
+        
         self.location_label = QtWidgets.QLabel(self.centralwidget)
-        self.location_label.setGeometry(QtCore.QRect(100, 300, 121, 61))
+        self.location_label.setGeometry(QtCore.QRect(100, 360, 121, 61))
         
         font = QtGui.QFont()
         font.setFamily("Segoe UI Symbol")
@@ -77,7 +78,7 @@ class Ui_MainWindow(object):
         self.url_textEdit.setObjectName("url_textEdit")
         
         self.location_textEdit = QtWidgets.QTextEdit(self.centralwidget)
-        self.location_textEdit.setGeometry(QtCore.QRect(260, 310, 381, 41))
+        self.location_textEdit.setGeometry(QtCore.QRect(260, 370, 381, 41))
         
         font = QtGui.QFont()
         font.setFamily("Segoe UI Light")
@@ -105,7 +106,7 @@ class Ui_MainWindow(object):
         self.browse_button.clicked.connect(lambda : self.browseButton_EventHandler(MainWindow))
         
         self.download_button = QtWidgets.QPushButton(self.centralwidget)
-        self.download_button.setGeometry(QtCore.QRect(340, 400, 151, 51))
+        self.download_button.setGeometry(QtCore.QRect(340, 460, 151, 51))
 
         # Bind the download button to a checker and subsequently downloading video
         self.download_button.clicked.connect(lambda : self.downloadButton_EventHandler(MainWindow))
@@ -181,16 +182,18 @@ class Ui_MainWindow(object):
         """Execute action when the download button is clicked."""
 
         MainWindow.download_operations({"URL"      : self.url_textEdit,
-                                        "Location" : self.location_textEdit,
-                                        "Cancel"   : self.cancel_button,
-                                        "Pause"    : self.pause_resume_button})
+                                        "Location"   : self.location_textEdit,
+                                        "Cancel"     : self.cancel_button,
+                                        "Pause"      : self.pause_resume_button,
+                                        "Download": self.download_button})
         
     def cancelButton_EventHandler(self, MainWindow):
         """Execute action when the cancel button is clicked."""
 
         MainWindow.cancel_operations({"Download" : self.download_button,
                                       "Cancel"   : self.cancel_button,
-                                      "Pause"    : self.pause_resume_button})
+                                      "Pause"    : self.pause_resume_button,
+                                      "Download": self.download_button})
 
         
 
