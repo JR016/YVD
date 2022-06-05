@@ -91,7 +91,7 @@ class Ui_MainWindow(object):
         self.location_textEdit.setObjectName("location_textEdit")
         
         self.browse_button = QtWidgets.QPushButton(self.centralwidget)
-        self.browse_button.setGeometry(QtCore.QRect(670, 315, 111, 31))
+        self.browse_button.setGeometry(QtCore.QRect(670, 375, 111, 31))
         
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
@@ -119,7 +119,7 @@ class Ui_MainWindow(object):
         self.download_button.setObjectName("download_button")
         
         self.cancel_button = QtWidgets.QPushButton(self.centralwidget)
-        self.cancel_button.setGeometry(QtCore.QRect(180, 490, 121, 51))
+        self.cancel_button.setGeometry(QtCore.QRect(140, 560, 121, 51))
 
         # Bind the cancel button to its determined functionality
         self.cancel_button.clicked.connect(lambda : self.cancelButton_EventHandler(MainWindow))
@@ -135,7 +135,7 @@ class Ui_MainWindow(object):
         self.cancel_button.setObjectName("cancel_button")
         
         self.pause_resume_button = QtWidgets.QPushButton(self.centralwidget)
-        self.pause_resume_button.setGeometry(QtCore.QRect(520, 490, 121, 51))
+        self.pause_resume_button.setGeometry(QtCore.QRect(580, 560, 121, 51))
 
         # Bind the pause/resume button to its respective functionality
         self.pause_resume_button.clicked.connect(lambda : self.pauseButton_EventHanlder(MainWindow))
@@ -149,6 +149,37 @@ class Ui_MainWindow(object):
         
         self.pause_resume_button.setFont(font)
         self.pause_resume_button.setObjectName("pause_resume_button")
+
+        self.vid_name_label = QtWidgets.QLabel(self.centralwidget)
+        self.vid_name_label.setGeometry(QtCore.QRect(110, 300, 121, 61))
+
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI Symbol")
+        font.setPointSize(16)
+
+        self.vid_name_label.setFont(font)
+        self.vid_name_label.setAlignment(QtCore.Qt.AlignCenter)
+        self.vid_name_label.setObjectName("vid_name_label")
+
+        self.vid_name_textEdit = QtWidgets.QTextEdit(self.centralwidget)
+        self.vid_name_textEdit.setGeometry(QtCore.QRect(260, 310, 381, 41))
+
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI Light")
+        font.setPointSize(16)
+
+        self.vid_name_textEdit.setFont(font)
+        self.vid_name_textEdit.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.vid_name_textEdit.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.vid_name_textEdit.setLineWrapMode(QtWidgets.QTextEdit.NoWrap)
+        self.vid_name_textEdit.setObjectName("vid_name_textEdit")
+
+        self.yt_progressBar = QtWidgets.QProgressBar(self.centralwidget)
+        self.yt_progressBar.setGeometry(QtCore.QRect(330, 570, 211, 31))
+        self.yt_progressBar.setObjectName("yt_progressBar")
+
+        # Hide the progress bar at the beginning by default
+        self.yt_progressBar.hide()
         
         MainWindow.setCentralWidget(self.centralwidget)
         
@@ -172,6 +203,7 @@ class Ui_MainWindow(object):
         self.download_button.setText("Download")
         self.cancel_button.setText("Cancel")
         self.pause_resume_button.setText("Pause")
+        self.vid_name_label.setText("Video Name")
 
     def browseButton_EventHandler(self, MainWindow):
         """Execute action when the browse button is clicked."""
@@ -181,19 +213,22 @@ class Ui_MainWindow(object):
     def downloadButton_EventHandler(self, MainWindow):
         """Execute action when the download button is clicked."""
 
-        MainWindow.download_operations({"URL"      : self.url_textEdit,
-                                        "Location"   : self.location_textEdit,
-                                        "Cancel"     : self.cancel_button,
-                                        "Pause"      : self.pause_resume_button,
-                                        "Download": self.download_button})
+        MainWindow.download_operations({"URL" : self.url_textEdit,
+                                        "Name"           : self.vid_name_textEdit,
+                                        "Location"       : self.location_textEdit,
+                                        "Cancel"         : self.cancel_button,
+                                        "Pause"          : self.pause_resume_button,
+                                        "Download"     : self.download_button,
+                                        "ProgressBar" : self.yt_progressBar})
         
     def cancelButton_EventHandler(self, MainWindow):
         """Execute action when the cancel button is clicked."""
 
         MainWindow.cancel_operations({"Download" : self.download_button,
-                                      "Cancel"   : self.cancel_button,
-                                      "Pause"    : self.pause_resume_button,
-                                      "Download": self.download_button})
+                                      "Cancel"                        : self.cancel_button,
+                                      "Pause"                         : self.pause_resume_button,
+                                      "Download"                    : self.download_button,
+                                      "ProgressBar"                : self.yt_progressBar})
 
         
 

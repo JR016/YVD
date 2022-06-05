@@ -19,6 +19,22 @@ def show_error(title, error_message):
     messagebox.showerror(title, error_message) #Show pop up
     box.destroy()
 
+def show_warning(title, warning_message):
+    """Show a GUI warning message."""
+
+    box = Tk()
+    box.withdraw()
+    messagebox.showwarning(title, warning_message)
+    box.destroy()
+
+def show_info(title, info_message):
+    """Show info to the user."""
+
+    box = Tk()
+    box.withdraw()
+    messagebox.showinfo(title, info_message)
+    box.destroy()
+
 def check_valid_URL(link):
     """Checks link is a valid youtube URL."""
 
